@@ -1193,13 +1193,16 @@ ModelType4=PCBLIB
 ModelName4=INF-SOT343_V
 ModelUpdate4=1
 ModelType5=PCBLIB
-ModelName5=RES_RC0201_P6XP3
+ModelName5=RES_RC0201_P6X00
 ModelUpdate5=1
+ModelType6=PCBLIB
+ModelName6=RES_RC0201_P6XP3
+ModelUpdate6=1
 ModelTypeGroup1=SI
 ModelTypeUpdate1=1
-ModelType6=SI
-ModelName6=Connector
-ModelUpdate6=1
+ModelType7=SI
+ModelName7=Connector
+ModelUpdate7=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
