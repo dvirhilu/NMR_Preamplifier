@@ -1,0 +1,17 @@
+Added Component: Designator=Q1(*PSON50P130X200X35-7N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Net: Name=NetQ1_2
+Added Pin To Net: NetName=NetQ1_3 Pin=Q1-3
+Added Net: Name=NetQ1_3
+Added Pin To Net: NetName=NetQ1_4 Pin=Q1-4
+Added Net: Name=NetQ1_4
+Added Pin To Net: NetName=NetQ1_5 Pin=Q1-5
+Added Net: Name=NetQ1_5
+Added Pin To Net: NetName=NetQ1_6 Pin=Q1-6
+Added Net: Name=NetQ1_6
+Added Pin To Net: NetName=NetQ1_7 Pin=Q1-7
+Added Net: Name=NetQ1_7
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Q1 BGU6101

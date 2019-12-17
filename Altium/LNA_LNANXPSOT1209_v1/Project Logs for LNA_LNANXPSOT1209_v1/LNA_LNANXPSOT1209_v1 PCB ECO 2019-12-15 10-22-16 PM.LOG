@@ -1,0 +1,81 @@
+Removed Pin From Net: NetName=RF_IN Pin=C3-1
+Removed Pin From Net: NetName=NetC6_1 Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=C7-2
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=C5
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=C6
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=C7
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=C8
+Change Component Designator: OldDesignator=C1 NewDesignator=C4
+Change Component Designator: OldDesignator=C2 NewDesignator=C3
+Change Component Designator: OldDesignator=C4 NewDesignator=C2
+Change Component Designator: OldDesignator=C5 NewDesignator=C1
+Change Component Designator: OldDesignator=R1 NewDesignator=R2
+Change Component Designator: OldDesignator=R2 NewDesignator=R1
+Change Component Designator: OldDesignator=R3 NewDesignator=Z2
+Change Component Designator: OldDesignator=R4 NewDesignator=Z3
+Change Component Designator: OldDesignator=R5 NewDesignator=Z4
+Change Component Designator: OldDesignator=R6 NewDesignator=Z5
+Change Component Designator: OldDesignator=R7 NewDesignator=Z7
+Change Component Designator: OldDesignator=R8 NewDesignator=Z10
+Change Component Designator: OldDesignator=R9 NewDesignator=Z11
+Added Component: Designator=Z1(RES_RC0201_P6XP3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Anthony"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "RC0201FR-0718KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Yageo"; VariantName = "[No Variations]"
+Added Component: Designator=Z6(RES_RC0201_P6XP3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Anthony"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "RC0201FR-0718KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Yageo"; VariantName = "[No Variations]"
+Added Component: Designator=Z8(RES_RC0201_P6XP3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Anthony"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "RC0201FR-0718KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Yageo"; VariantName = "[No Variations]"
+Added Component: Designator=Z9(RES_RC0201_P6XP3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Anthony"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "RC0201FR-0718KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Yageo"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=RF_IN Pin=Z1-1
+Added Pin To Net: NetName=GND Pin=Z6-1
+Added Pin To Net: NetName=NetC6_1 Pin=Z6-2
+Added Pin To Net: NetName=GND Pin=Z8-1
+Change Net Name : Old Net Name=NetC6_1 New Net Name=NetZ2_2
+Change Net Name : Old Net Name=NetR1_1 New Net Name=NetR2_1
+Change Net Name : Old Net Name=NetR9_2 New Net Name=NetZ11_2
+Added Pin To Net: NetName=NetZ1_2 Pin=Z1-2
+Added Pin To Net: NetName=NetZ1_2 Pin=Z2-1
+Added Pin To Net: NetName=NetZ1_2 Pin=Z3-2
+Added Net: Name=NetZ1_2
+Added Pin To Net: NetName=NetZ7_2 Pin=Z7-2
+Added Pin To Net: NetName=NetZ7_2 Pin=Z8-2
+Added Pin To Net: NetName=NetZ7_2 Pin=Z9-1
+Added Net: Name=NetZ7_2
+Added Pin To Net: NetName=NetZ9_2 Pin=Z9-2
+Added Pin To Net: NetName=NetZ9_2 Pin=Z10-1
+Added Pin To Net: NetName=NetZ9_2 Pin=Z11-1
+Added Net: Name=NetZ9_2
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component R2 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Z1 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Z6 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Z8 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Z9 

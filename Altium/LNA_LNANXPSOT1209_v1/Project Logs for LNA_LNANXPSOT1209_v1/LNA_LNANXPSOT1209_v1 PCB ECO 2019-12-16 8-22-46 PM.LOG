@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=RF_OUT Pin=Z11-2
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component C1 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component C2 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component C3 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component R2 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component Z7 
