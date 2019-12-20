@@ -38,7 +38,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\..\..\..\..\Admin\Desktop\ENPH 459\NMR_Preamplifier\Altium\lib\RC0201FR0718KL\AltiumDesigner\2019-12-11_03-17-20\0201Resistor_Yageo.PcbLib
+DocumentPath=..\ENPH 459\NMR_Preamplifier\Altium\lib\TI_LDO_3V3_SOT325\AltiumDesigner\2019-12-15_10-22-26\TI_LDO_3V3_SOT325.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -52,26 +52,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TCDKLHKP
+DocumentUniqueId=YDOFBHLM
 
 [Document2]
-DocumentPath=..\..\..\..\..\Admin\Desktop\ENPH 459\NMR_Preamplifier\Altium\lib\C0201Yageo\AltiumDesigner\2019-12-12_01-07-15\0201Capacitor_Yageo.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=SKCAYKYD
-
-[Document3]
 DocumentPath=LNA_LNANXPSOT1209_v1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FLNZNSQC
 
-[Document4]
+[Document3]
 DocumentPath=LNA_LNANXPSOT1209_v1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
