@@ -6,8 +6,8 @@ WARNING: Less than two connections to node VOUT.  This node is used by COUT.
 WARNING: Less than two connections to node NC_01.  This node is used by R:U1:E1.
 Direct Newton iteration for .op point succeeded.
 
-Date: Tue Dec 10 19:35:29 2019
-Total elapsed time: 0.324 seconds.
+Date: Fri Dec 20 23:34:53 2019
+Total elapsed time: 0.295 seconds.
 
 tnom = 25
 temp = 27
