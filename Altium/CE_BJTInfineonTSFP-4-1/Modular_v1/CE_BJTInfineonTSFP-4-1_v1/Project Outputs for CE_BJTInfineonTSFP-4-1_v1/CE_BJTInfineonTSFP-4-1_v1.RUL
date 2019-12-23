@@ -1,0 +1,5 @@
+DRC Rules Export File for PCB: C:\Users\Dvir\Documents\School Stuff\ENPH 4th Year Term 1\Capstone\NMR_Preamplifier\Altium\CE_BJTInfineonTSFP-4-1\Modular_v1\CE_BJTInfineonTSFP-4-1_v1\CE_BJTInfineonTSFP-4-1_v1.PcbDoc
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=10.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

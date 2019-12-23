@@ -181,10 +181,6 @@ DItemRevisionGUID=
 DocumentPath=Project Outputs for CS_JFETOnSemiSOT23_Simple_v1\CS_JFETOnSemiSOT23_Simple_v1.TXT
 DItemRevisionGUID=
 
-[GeneratedDocument20]
-DocumentPath=Project Outputs for CS_JFETOnSemiSOT23_Simple_v1\Design Rule Check - CS_JFETOnSemiSOT23_Simple_v1.html
-DItemRevisionGUID=
-
 [Configuration1]
 Name=Sources
 ParameterCount=0
