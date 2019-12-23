@@ -1,0 +1,53 @@
+Removed Pin From Net: NetName=B Pin=Q1-1
+Removed Pin From Net: NetName=E Pin=Q1-2
+Removed Pin From Net: NetName=C Pin=Q1-3
+Change Component Footprint: Designator=Q1 Old Footprint=INF-SOT343_V New Footprint=ONSC-CP-3-318AN_A_V
+Change Component Comment : Designator=Q1 Old Comment=SOT343 New Comment=2SK2394-6-TB-E
+Change component parameters: Designator = "Q1"; Footprint = "ONSC-CP-3-318AN_A_V"; UniqueID = "\CNBLGLRL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Channel Polarity"; Value = "N Channel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.onsemi.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN4839-D.PDF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN6619-D.PDF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "IDSS Max (uA)"; Value = "20000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "IDSS Min (uA)"; Value = "10000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "On Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "3-Pin Small Outline Transistor, Body 2.9 x 1.5 mm, Pitch 0.95 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "CP-3-318AN_A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "Pb-Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 2"; Value = "Mouser"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "2SK2394-6-TB-E-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 2"; Value = "863-2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(ONSC-CP-3-318AN_A_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Channel Polarity"; Value = "N Channel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.onsemi.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN4839-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN6619-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "IDSS Max (uA)"; Value = "20000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "IDSS Min (uA)"; Value = "10000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "On Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "3-Pin Small Outline Transistor, Body 2.9 x 1.5 mm, Pitch 0.95 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "CP-3-318AN_A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Pb-Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "2SK2394-6-TB-E-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "863-2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=E Pin=Q1-1
+Added Pin To Net: NetName=C Pin=Q1-2
+Added Pin To Net: NetName=B Pin=Q1-3
+Added Member To Class: ClassName=CS_JFETOnSemiSOT23_Simple_v1 Member=Component Q? 2SK2394-6-TB-E

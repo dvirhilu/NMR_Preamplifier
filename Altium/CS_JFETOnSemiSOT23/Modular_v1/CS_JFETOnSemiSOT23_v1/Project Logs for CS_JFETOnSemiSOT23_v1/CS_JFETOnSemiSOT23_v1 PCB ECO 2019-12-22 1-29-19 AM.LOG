@@ -1,0 +1,96 @@
+Change Component Footprint: Designator=Q1 Old Footprint=INF-TSFP-4-1_V New Footprint=ONSC-CP-3-318AN_A_V
+Change Component Comment : Designator=Q1 Old Comment=BFP720F New Comment=2SK2394-6-TB-E
+Change component parameters: Designator = "Q1"; Footprint = "ONSC-CP-3-318AN_A_V"; UniqueID = "\JGKTETOA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Channel Polarity"; Value = "N Channel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.onsemi.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN4839-D.PDF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.onsemi.com/pub_link/Collateral/EN6619-D.PDF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "IDSS Max (uA)"; Value = "20000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "IDSS Min (uA)"; Value = "10000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "On Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "3-Pin Small Outline Transistor, Body 2.9 x 1.5 mm, Pitch 0.95 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "CP-3-318AN_A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "Pb-Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 2"; Value = "Mouser"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "2SK2394-6-TB-E-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 2"; Value = "863-2SK2394-6-TB-E"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=B Pin=D3-2
+Added Pin To Net: NetName=B Pin=Q1-3
+Added Pin To Net: NetName=B Pin=Z3-2
+Added Pin To Net: NetName=B Pin=Z4-2
+Added Pin To Net: NetName=B Pin=Z5-2
+Added Net: Name=B
+Added Pin To Net: NetName=C Pin=D3-1
+Added Pin To Net: NetName=C Pin=Q1-2
+Added Pin To Net: NetName=C Pin=R3-1
+Added Pin To Net: NetName=C Pin=Z7-2
+Added Pin To Net: NetName=C Pin=Z8-2
+Added Pin To Net: NetName=C Pin=Z9-1
+Added Net: Name=C
+Added Pin To Net: NetName=E Pin=C2-2
+Added Pin To Net: NetName=E Pin=Q1-1
+Added Pin To Net: NetName=E Pin=R4-2
+Added Pin To Net: NetName=E Pin=Z6-2
+Added Net: Name=E
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=GND Pin=D1-2
+Added Pin To Net: NetName=GND Pin=D2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=GND Pin=Z2-1
+Added Pin To Net: NetName=GND Pin=Z4-1
+Added Pin To Net: NetName=GND Pin=Z5-1
+Added Pin To Net: NetName=GND Pin=Z6-1
+Added Pin To Net: NetName=GND Pin=Z7-1
+Added Pin To Net: NetName=GND Pin=Z8-1
+Added Pin To Net: NetName=GND Pin=Z10-1
+Added Pin To Net: NetName=GND Pin=Z11-1
+Added Net: Name=GND
+Added Pin To Net: NetName=N1 Pin=C1-2
+Added Pin To Net: NetName=N1 Pin=Z1-1
+Added Net: Name=N1
+Added Pin To Net: NetName=N2 Pin=R1-1
+Added Pin To Net: NetName=N2 Pin=R2-2
+Added Pin To Net: NetName=N2 Pin=Z1-2
+Added Pin To Net: NetName=N2 Pin=Z2-2
+Added Pin To Net: NetName=N2 Pin=Z3-1
+Added Net: Name=N2
+Added Pin To Net: NetName=N3 Pin=C3-1
+Added Pin To Net: NetName=N3 Pin=Z9-2
+Added Pin To Net: NetName=N3 Pin=Z10-2
+Added Pin To Net: NetName=N3 Pin=Z11-2
+Added Net: Name=N3
+Added Pin To Net: NetName=Vbatt Pin=C7-2
+Added Pin To Net: NetName=Vbatt Pin=C8-2
+Added Pin To Net: NetName=Vbatt Pin=U1-1
+Added Pin To Net: NetName=Vbatt Pin=U1-3
+Added Net: Name=Vbatt
+Added Pin To Net: NetName=Vcc Pin=C4-2
+Added Pin To Net: NetName=Vcc Pin=C5-2
+Added Pin To Net: NetName=Vcc Pin=C6-2
+Added Pin To Net: NetName=Vcc Pin=R1-2
+Added Pin To Net: NetName=Vcc Pin=R3-2
+Added Pin To Net: NetName=Vcc Pin=U1-5
+Added Net: Name=Vcc
+Added Pin To Net: NetName=Vin Pin=C1-1
+Added Pin To Net: NetName=Vin Pin=D1-1
+Added Pin To Net: NetName=Vin Pin=D2-2
+Added Net: Name=Vin
+Added Pin To Net: NetName=Vout Pin=C3-2
+Added Net: Name=Vout
+Added Class: Name=CS_JFETOnSemiSOT23_v1
+Added Room: Name=CS_JFETOnSemiSOT23_v1
