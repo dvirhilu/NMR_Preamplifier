@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [CS_JFETOnSemiSOT23_Simple_v1.PrjPcb]
+   Generated File[CS_JFETOnSemiSOT23_Simple_v1.TXT]
+   Generated File[CS_JFETOnSemiSOT23_Simple_v1.LDP]
+   Generated File[CS_JFETOnSemiSOT23_Simple_v1.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 9:21:35 PM On 2019-12-22

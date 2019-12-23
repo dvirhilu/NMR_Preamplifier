@@ -1,0 +1,5 @@
+DRC Rules Export File for PCB: C:\Users\Dvir\Documents\School Stuff\ENPH 4th Year Term 1\Capstone\NMR_Preamplifier\Altium\CS_JFETOnSemiSOT23\Simple_v1\CS_JFETOnSemiSOT23_Simple_v1\CS_JFETOnSemiSOT23_Simple_v1.PcbDoc
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=10.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
