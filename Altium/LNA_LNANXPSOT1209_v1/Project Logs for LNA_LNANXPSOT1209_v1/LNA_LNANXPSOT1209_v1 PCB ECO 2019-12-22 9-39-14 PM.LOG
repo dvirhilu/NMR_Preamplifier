@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=RF_IN Pin=Z1-1
+Removed Pin From Net: NetName=NetZ2_2 Pin=Z2-2
+Removed Pin From Net: NetName=NetZ2_2 Pin=Z4-2
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Z1
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Z2
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Z3
+Removed Member From Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Z4
+Added Pin To Net: NetName=NetZ2_2 Pin=Q1-4
+Added Pin To Net: NetName=NetZ2_2 Pin=Z11-2
+Change Net Name : Old Net Name=NetZ2_2 New Net Name=RF_OUT
