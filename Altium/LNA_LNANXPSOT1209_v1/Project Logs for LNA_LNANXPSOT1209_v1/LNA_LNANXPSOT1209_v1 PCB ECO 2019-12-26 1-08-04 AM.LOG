@@ -1,0 +1,52 @@
+Added Component: Designator=D1(INF-SOD323_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.infineon.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.infineon.com/dgdl/bat15series.pdf?folderId=db3a304314dca3890114ff6812070b44&fileId=db3a304314dca3890114ff6b74ca0b48&location=en.Products.RF.RF_Mixer___Detector_Schottky_Diodes.DATASHEET.bat15series.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.infineon.com/dgdl/SOD323-Package_Overview.pdf?folderId=db3a30431936bc4b011952aab84f3bbe&fileId=db3a30431936bc4b011952beed653be3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CT (typ)"; Value = "0.26 pF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Jun-2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Green"; Value = "yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Group"; Value = "RF Mixer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "IF (max)"; Value = "110 mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Infineon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin Small Outline Diode Package, 1.25 x 1.7 mm Body"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SOD323"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "BAT15-03W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "N/A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VF (typ)"; Value = "0.23 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VR (max)"; Value = "4 V"; VariantName = "[No Variations]"
+Added Component: Designator=D2(INF-SOD323_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.infineon.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.infineon.com/dgdl/bat15series.pdf?folderId=db3a304314dca3890114ff6812070b44&fileId=db3a304314dca3890114ff6b74ca0b48&location=en.Products.RF.RF_Mixer___Detector_Schottky_Diodes.DATASHEET.bat15series.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.infineon.com/dgdl/SOD323-Package_Overview.pdf?folderId=db3a30431936bc4b011952aab84f3bbe&fileId=db3a30431936bc4b011952beed653be3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CT (typ)"; Value = "0.26 pF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Jun-2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Green"; Value = "yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Group"; Value = "RF Mixer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "IF (max)"; Value = "110 mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Infineon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin Small Outline Diode Package, 1.25 x 1.7 mm Body"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SOD323"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "BAT15-03W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "N/A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VF (typ)"; Value = "0.23 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VR (max)"; Value = "4 V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=RF_IN Pin=D1-1
+Added Pin To Net: NetName=GND Pin=D1-2
+Added Pin To Net: NetName=GND Pin=D2-1
+Added Pin To Net: NetName=RF_IN Pin=D2-2
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component D1 
+Added Member To Class: ClassName=LNA_LNANXPSOT1209_v1 Member=Component D2 
