@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [LNA_LNANXPSOT1209_v1.PrjPcb]
+   Generated File[LNA_LNANXPSOT1209_v1.TXT]
+   Generated File[LNA_LNANXPSOT1209_v1.LDP]
+   Generated File[LNA_LNANXPSOT1209_v1.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 1:39:51 PM On 2019-12-30
