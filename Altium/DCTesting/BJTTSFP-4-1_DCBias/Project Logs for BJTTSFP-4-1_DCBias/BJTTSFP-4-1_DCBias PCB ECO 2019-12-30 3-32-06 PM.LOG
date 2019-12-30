@@ -1,0 +1,51 @@
+Change Component Footprint: Designator=Q1 Old Footprint=INF-SOT343_V New Footprint=INF-TSFP-4-1_V
+Change component parameters: Designator = "Q1"; Footprint = "INF-TSFP-4-1_V"; UniqueID = "\YXEHJGXR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.infineon.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.infineon.com/dgdl/bfp720f.pdf?folderId=db3a30431400ef68011425b291f205c5&fileId=db3a30431ddc9372011e2673bdbf4727&location=en.Products.RF.RF_Transistors_.Ultra_Low_Noise_SiGe_C_Transistors_for_use_up_to_12_GHz.DATASHEET.bfp720f.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.infineon.com/dgdl/TSFP-4-1%2C-2-Package_Overview.pdf?folderId=db3a30431936bc4b011953b7d203683d&fileId=db3a30431936bc4b011953c249663734"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 1.0"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Gmax (typ)"; Value = "26 dB"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Green"; Value = "yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Group"; Value = "Ultra low noise SiGe"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Halogen-free"; Value = "yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "IC (max)"; Value = "20 mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Infineon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "NFmin (typ)"; Value = "0.5 dB"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "4-Pin Thin Small Flat Package, 0.8 x 1.4 mm Body, 0.5 mm Pitch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "TSFP-4-1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "BFP720F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ptot (max)"; Value = "80mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VCEO (max)"; Value = "4 V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=B Pin=Q1-1
+Added Pin To Net: NetName=B Pin=R1-2
+Added Pin To Net: NetName=B Pin=R2-1
+Added Net: Name=B
+Added Pin To Net: NetName=C Pin=Q1-3
+Added Pin To Net: NetName=C Pin=R3-2
+Added Net: Name=C
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=GND Pin=R2-2
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Net: Name=GND
+Added Pin To Net: NetName=Vbatt Pin=C3-2
+Added Pin To Net: NetName=Vbatt Pin=C4-2
+Added Pin To Net: NetName=Vbatt Pin=U1-1
+Added Pin To Net: NetName=Vbatt Pin=U1-3
+Added Net: Name=Vbatt
+Added Pin To Net: NetName=Vcc Pin=C1-2
+Added Pin To Net: NetName=Vcc Pin=C2-2
+Added Pin To Net: NetName=Vcc Pin=R1-1
+Added Pin To Net: NetName=Vcc Pin=R3-1
+Added Pin To Net: NetName=Vcc Pin=U1-5
+Added Net: Name=Vcc
+Added Class: Name=BJTTSFP-4-1_DCBias
+Added Room: Name=BJTTSFP-4-1_DCBias
