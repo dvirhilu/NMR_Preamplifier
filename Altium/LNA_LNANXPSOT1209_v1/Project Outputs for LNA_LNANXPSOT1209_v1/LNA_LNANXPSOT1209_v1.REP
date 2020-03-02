@@ -2,27 +2,26 @@
 FileName = LNA_LNANXPSOT1209_v1.GBR
 AutoAperture = True
 *************************************************************
-Generating : Bottom Overlay
-      File : LNA_LNANXPSOT1209_v1.GBO
+Generating : Top Solder
+      File : LNA_LNANXPSOT1209_v1.GTS
 
-    Adding Layer      : Bottom Overlay
+    Adding Layer      : Top Solder
 
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Bottom Solder
-      File : LNA_LNANXPSOT1209_v1.GBS
-
-    Adding Layer      : Bottom Solder
-
-    Adding Layer      : Bottom Layer
+    Adding Layer      : Top Layer
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
+    D14
+    D17
+    D18
+    D19
+    D20
+    D23
+    D24
+    D25
+    D26
     D27
 *************************************************************
 
@@ -48,6 +47,17 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
+Generating : Keep-Out Layer
+      File : LNA_LNANXPSOT1209_v1.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D28
+*************************************************************
+
+*************************************************************
 Generating : Bottom Paste
       File : LNA_LNANXPSOT1209_v1.GBP
 
@@ -56,6 +66,43 @@ Generating : Bottom Paste
     Adding Layer      : Bottom Layer
 
     Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : LNA_LNANXPSOT1209_v1.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D27
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : LNA_LNANXPSOT1209_v1.GPB
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : LNA_LNANXPSOT1209_v1.GBO
+
+    Adding Layer      : Bottom Overlay
 
 
 Used DCodes :
@@ -76,8 +123,8 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Pad Master
-      File : LNA_LNANXPSOT1209_v1.GPB
+Generating : Bottom Layer
+      File : LNA_LNANXPSOT1209_v1.GBL
 
     Adding Layer      : Bottom Layer
 
@@ -85,6 +132,8 @@ Generating : Bottom Pad Master
 
 
 Used DCodes :
+    D28
+    D29
 *************************************************************
 
 *************************************************************
@@ -108,54 +157,6 @@ Used DCodes :
     D20
     D21
     D22
-*************************************************************
-
-*************************************************************
-Generating : Bottom Layer
-      File : LNA_LNANXPSOT1209_v1.GBL
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D28
-    D29
-*************************************************************
-
-*************************************************************
-Generating : Keep-Out Layer
-      File : LNA_LNANXPSOT1209_v1.GKO
-
-    Adding Layer      : Keep-Out Layer
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Top Solder
-      File : LNA_LNANXPSOT1209_v1.GTS
-
-    Adding Layer      : Top Solder
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D14
-    D17
-    D18
-    D19
-    D20
-    D23
-    D24
-    D25
-    D26
-    D27
 *************************************************************
 
 *************************************************************
