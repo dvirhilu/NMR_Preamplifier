@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [MultiStage_Cascade_SOT343.PrjPcb]
+   Generated File[MultiStage_Cascade_SOT343.TXT]
+   Generated File[MultiStage_Cascade_SOT343.LDP]
+   Generated File[MultiStage_Cascade_SOT343.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 10:41:46 PM On 2020-03-02
