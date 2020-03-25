@@ -3,41 +3,49 @@ Circuit: * C:\Users\Dvir\Documents\School Stuff\ENPH 4th Year Term 1\Capstone\NM
 WARNING: Less than two connections to node NC_01.  This node is used by R:U1:E1.
 Direct Newton iteration for .op point succeeded.
 Semiconductor Device Operating Points:
+                        --- Diodes ---
+Name:    d:u1:5      d:u1:4      d:u1:3      d:u1:2      d:u1:1
+Model:   u1:m_d5     u1:m_d4     u1:m_d3     u1:m_d2     u1:m_d1
+Id:     -2.44e-12    2.44e-12   -2.60e-12   -7.75e-13   -7.75e-13
+Vd:     -2.44e+00    1.60e-01   -2.60e+00   -7.71e-01   -7.71e-01
+Req:     1.00e+12    1.12e+10    1.00e+12    1.00e+12    1.00e+12
+CAP:     5.67e-15    1.14e-14    4.61e-15    3.33e-15    6.66e-15
+
                         --- Bipolar Transistors ---
-Name:     q:u1:1
-Model:  u1:m_bfp760
-Ib:       6.32e-06
-Ic:       2.33e-03
-Vbe:      7.34e-01
-Vbc:     -1.66e+00
-Vce:      2.39e+00
-BetaDC:   3.69e+02
-Gm:       8.57e-02
-Rpi:      4.14e+03
-Rx:       3.53e+00
-Ro:       1.28e+05
-Cbe:      7.49e-13
-Cbc:      7.74e-14
-Cjs:      1.84e-13
-BetaAC:   3.55e+02
-Cbx:      3.32e-14
-Ft:       1.59e+10
+Name:       q:u1:1
+Model:  u1:m_bfp842esd
+Ib:        5.52e-06
+Ic:        1.80e-03
+Vbe:       7.71e-01
+Vbc:      -1.83e+00
+Vce:       2.60e+00
+BetaDC:    3.26e+02
+Gm:        6.37e-02
+Rpi:       4.78e+03
+Rx:        3.10e+00
+Ro:        5.18e+04
+Cbe:       1.39e-13
+Cbc:       1.36e-15
+Cjs:       3.38e-13
+BetaAC:    3.04e+02
+Cbx:       1.42e-15
+Ft:        7.15e+10
 
 
 
-Date: Tue Dec 10 19:37:29 2019
-Total elapsed time: 0.080 seconds.
+Date: Wed Feb 05 18:39:59 2020
+Total elapsed time: 0.062 seconds.
 
 tnom = 25
 temp = 27
 method = trap
-totiter = 5
+totiter = 35
 traniter = 0
 tranpoints = 0
 accept = 0
 rejected = 0
-matrix size = 17
-fillins = 14
+matrix size = 29
+fillins = 40
 solver = Normal
-Matrix Compiler1: 2.41 KB object code size
-Matrix Compiler2: 1.77 KB object code size
+Matrix Compiler1: 4.59 KB object code size
+Matrix Compiler2:     241 opcodes
