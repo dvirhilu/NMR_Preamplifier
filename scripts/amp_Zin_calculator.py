@@ -8,53 +8,64 @@ import CalculationUtils
 parser = argparse.ArgumentParser(
         description = "Calculates the input impedance of a single stage amplifier design")
 
-parser.add_argument( '-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
+parser.add_argument('-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
         help = "Type of amplifier used.")
-parser.add_argument( '-v', '--Vcc', default = 3.3, type = float,
+parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
-parser.add_argument( '--Vbe', default = 0.76, type = float,
+parser.add_argument('--Vbe', default = 0.76, type = float,
         help = "The base emitter voltage of the BJT")
-parser.add_argument( '-i', '--emitterCurrent',  default = 5e-3, type = float,
+parser.add_argument('-i', '--emitterCurrent',  default = 5e-3, type = float,
         help = "Target current flow in the emitter branch.")
-parser.add_argument( '-c', '--C_pi', default = 0.595e-12, type = float,
-        help = "C_pi of the chosen transistor in the Hybrid Pi Model")
-parser.add_argument( '-b', '--beta', default = 330, type = float,
+parser.add_argument('-b', '--beta', default = 330, type = float,
         help = "Current amplification factor of the transistor")
-parser.add_argument('--R1', default = 127, type = float, 
+parser.add_argument('--Cpi', default = 0.595e-12, type = float,
+        help = "C_pi of the chosen transistor in the Hybrid Pi Model")
+parser.add_argument('--Cmu', default = 0.147e-12, type = float,
+		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
+parser.add_argument('--Cseries', default = np.inf, type = float,
+		help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
+parser.add_argument('--R1', default = 60.4, type = float, 
         help = "Top resistor in the divider at the input")
-parser.add_argument('--R2', default = 750, type = float, 
+parser.add_argument('--R2', default = 357, type = float, 
         help = "Middle resistor in the divider at the input")
 parser.add_argument('--R3', default = 100, type = float, 
         help = "Bottom resistor in the divider at the input")
-parser.add_argument('--RE', default = 412, type = float, 
-        help = "Emitter resistor value")
+parser.add_argument('--RC', default = 50, type = float,
+        help = "Collector resistor value")
 parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
         help = "The impedance magnitude you wish to match to. Used as Bode Plot reference.")
 args = parser.parse_args()
 
-# Constants
-v_t = 26e-3
+#### Design Parameters ###
+v_t = 27e-3
 z_target = args.targetImpedanceMagnitude
 V_BE = args.Vbe
 V_CC = args.Vcc
 I_E = args.emitterCurrent
-c_pi = args.C_pi
+c_pi = args.Cpi
+c_mu = args.Cmu
+c_series = args.Cseries
 f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
-z_pi = -1j/(omega*c_pi)
 beta = args.beta
 R1 = args.R1
 R2 = args.R2
 R3 = args.R3
-RE = args.RE
+RC = args.RC
 r_pi = beta * v_t / I_E
+z_pi = -1j/(omega*c_pi)
 
 if args.ampType == 'commonEmitter':
-    # Calculate contributions from divider network and bjt
-    R_in_eq = CalculationUtils.parallel(R1, R2)
-    z_bjt = CalculationUtils.parallel(z_pi, r_pi)
+	# Calculate Miller impedance 
+	gain = RC * I_E/v_t
+	c_miller = c_mu * (1 + gain)
 
-    z_in = CalculationUtils.parallel(R_in_eq, z_bjt)
+	z_miller = -1j/(omega*c_miller)
+
+    # Calculate contributions from divider network and bjt
+	R_in_eq = CalculationUtils.parallel(R1, R2)
+	z_bjt = CalculationUtils.parallel(z_pi, r_pi)
+	z_in = CalculationUtils.parallel(R_in_eq, z_bjt, z_miller)
 else:
     z_in = 0
 
@@ -78,5 +89,14 @@ plt.plot(f*1e-6, z_in_phase*180/(2*np.pi))
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Input Impedance Phase (Degrees)")
 plt.title("Amplifier Input Impedance Phase")
+
+plt.figure()
+plt.plot([c.real for c in z_in], [c.imag for c in z_in])
+plt.xlabel("Re(" + r'$Z_{in}$' + ")")
+plt.ylabel("Im(" + r'$Z_{in}$' + ")")
+plt.xlim(-100, 100)
+plt.ylim(-100, 100)
+plt.title("Input Impedance in the Complex Plane")
+plt.grid()
 
 plt.show()
