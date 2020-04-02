@@ -24,12 +24,8 @@ parser.add_argument('--Cmu', default = 0.147e-12, type = float,
 		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cseries', default = np.inf, type = float,
 		help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
-parser.add_argument('--R1', default = 60.4, type = float, 
-        help = "Top resistor in the divider at the input")
-parser.add_argument('--R2', default = 357, type = float, 
-        help = "Middle resistor in the divider at the input")
-parser.add_argument('--R3', default = 100, type = float, 
-        help = "Bottom resistor in the divider at the input")
+parser.add_argument('-r', '--rParallel', default = 50, type = float,
+                help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
@@ -48,12 +44,10 @@ c_series = args.Cseries
 f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
 beta = args.beta
-R1 = args.R1
-R2 = args.R2
-R3 = args.R3
 RC = args.RC
 r_pi = beta * v_t / I_E
 z_pi = -1j/(omega*c_pi)
+R_in_eq = args.rParallel
 
 if args.ampType == 'commonEmitter':
 	# Calculate Miller impedance 
@@ -63,7 +57,6 @@ if args.ampType == 'commonEmitter':
 	z_miller = -1j/(omega*c_miller)
 
     # Calculate contributions from divider network and bjt
-	R_in_eq = CalculationUtils.parallel(R1, R2)
 	z_bjt = CalculationUtils.parallel(z_pi, r_pi)
 	z_in = CalculationUtils.parallel(R_in_eq, z_bjt, z_miller)
 else:
