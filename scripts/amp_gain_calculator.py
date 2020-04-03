@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import CalculationUtils
@@ -20,14 +21,18 @@ parser.add_argument('-b', '--beta', default = 330, type = float,
 parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
-        help = "C_mu of the chosen transistor in the Hybrid Pi Model")
+		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
+parser.add_argument('--Cseries', default = np.inf, type = float,
+		help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
+parser.add_argument('-r', '--rParallel', default = 50, type = float,
+                help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
-        help = "The magnitude of the desired input impedance")
+        help = "The impedance magnitude you wish to match to. Used as Bode Plot reference.")
 args = parser.parse_args()
 
-# Design Parameters
+#### Design Parameters ###
 v_t = 27e-3
 z_target = args.targetImpedanceMagnitude
 V_BE = args.Vbe
@@ -35,44 +40,48 @@ V_CC = args.Vcc
 I_E = args.emitterCurrent
 c_pi = args.Cpi
 c_mu = args.Cmu
-f = (500e6+125e6)/2
+c_series = args.Cseries
+f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
 beta = args.beta
 RC = args.RC
-r_e = v_t / I_E
-r_pi = beta * r_e
+g_m = I_E / v_t
+r_e = 1 / g_m
 z_pi = -1j/(omega*c_pi)
+z_mu = -1j/(omega*c_mu)
+R_in_eq = args.rParallel
 
-# Calculate gain for Miller Capacitance depending on amplifier type
+g_1 = g_m - 1 / z_mu
+z_1 = CalculationUtils.parallel(RC, z_mu)
+
 if args.ampType == 'commonEmitter':
-	miller_gain = RC * I_E/v_t
+    gain = z_1 * g_1
 else:
-        miller_gain = CalculationUtils.parallel(r_e, z_mu, z_pi) / CalculationUtils.parallel(r_e, z_mu)
+    z_2 = CalculationUtils.parallel(r_e, z_mu, z_pi)
+    gain = z_1 * z_2 * g_1 * g_m
 
-# Calculate Miller impedance 
-c_miller = c_mu * (1 + miller_gain)
-z_miller = -1j/(omega*c_miller)
+gain_mag = CalculationUtils.magnitude(gain)
+gain_phase = CalculationUtils.phase(gain)
 
-# Calculate contributions from divider network and bjt
-z_bjt = CalculationUtils.parallel(z_pi, r_pi)
+plt.figure()
+plt.semilogx(f*1e-6, 20*np.log(gain_mag) )
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Gain Magnitude (dB)")
+plt.title("Gain Bode Plot" )
 
-z_ext = CalculationUtils.parallel(z_target, -z_bjt, -z_miller)
+plt.figure()
+plt.plot(f*1e-6, gain_phase*180/(2*np.pi))
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Gain Phase (Degrees)")
+plt.title("Gain Phase Plot")
 
-R_parallel_no_cap = CalculationUtils.magnitude(z_ext)
+plt.figure()
+plt.plot([c.real for c in gain], [c.imag for c in gain])
+plt.xlabel("Re(" + r'$Z_{in}$' + ")")
+plt.ylabel("Im(" + r'$Z_{in}$' + ")")
+plt.xlim(-100, 100)
+plt.ylim(-100, 100)
+plt.title("Gain in the Complex Plane")
+plt.grid()
 
-R_parallel_with_cap = z_ext.real
-C_series = 1/(omega*z_ext.imag)
-
-print('\n')
-print('************************************************************\n')
-print('The following is a first guess to achieve Z_in = ' + str(z_target) + ':')
-print('\nWith no series capacitor:')
-print('R1||R2 = ' + str(R_parallel_no_cap) + ' Ohms')
-print('\nWith a series capacitor:')
-print('R1||R2 = ' + str(R_parallel_with_cap) + ' Ohms')
-print('C_series = ' + str(C_series*10**(12)) + ' pF')
-print('\n************************************************************')
-print('\n')
-print('NOTE: This was a calculation for f = 312.5MHz')
-print('NOTE: The calculation yielded Z_ext = ' + str(z_ext))
-print()
+plt.show()

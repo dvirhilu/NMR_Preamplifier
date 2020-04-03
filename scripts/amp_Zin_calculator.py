@@ -45,22 +45,26 @@ f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
 beta = args.beta
 RC = args.RC
-r_pi = beta * v_t / I_E
+r_e = v_t / I_E
+r_pi = beta * r_e
 z_pi = -1j/(omega*c_pi)
+z_mu = -1j/(omega*c_mu)
 R_in_eq = args.rParallel
 
+# Calculate gain for Miller Capacitance depending on amplifier type
 if args.ampType == 'commonEmitter':
-	# Calculate Miller impedance 
-	gain = RC * I_E/v_t
-	c_miller = c_mu * (1 + gain)
-
-	z_miller = -1j/(omega*c_miller)
-
-    # Calculate contributions from divider network and bjt
-	z_bjt = CalculationUtils.parallel(z_pi, r_pi)
-	z_in = CalculationUtils.parallel(R_in_eq, z_bjt, z_miller)
+	miller_gain = RC * I_E/v_t
 else:
-    z_in = 0
+        miller_gain = CalculationUtils.parallel(r_e, z_mu, z_pi) / CalculationUtils.parallel(r_e, z_mu)
+
+# Calculate Miller impedance 
+c_miller = c_mu * (1 + miller_gain)
+z_miller = -1j/(omega*c_miller)
+
+# find non-feedback contribution from BJT
+z_bjt = CalculationUtils.parallel(z_pi, r_pi)
+
+z_in = CalculationUtils.parallel(R_in_eq, z_bjt, z_miller)
 
 z_in_mag = CalculationUtils.magnitude(z_in)
 z_in_phase = CalculationUtils.phase(z_in)

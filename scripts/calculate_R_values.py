@@ -24,6 +24,8 @@ parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value. Ignored if RE provided")
 parser.add_argument('-r', '--rParallel', default = 50, type = float,
         help = "The impedance magnitude you wish to match to. Used as Bode Plot reference.")
+parser.add_argument('-m', '--maximum_r_parallel', action = 'store_true',
+        help = "If this option is specified, ignores r_parallel and uses r_parallel=R_E." )
 args = parser.parse_args()
 
 ### CONSTANTS ###
@@ -32,7 +34,6 @@ Vcc = args.Vcc
 RC = args.RC
 Vce = args.Vce
 Vbe = args.Vbe
-R_parallel = args.rParallel
 
 # determine R_E based on either provided value or from R_C and V_CE
 if hasattr(args, 'RE'):
@@ -44,6 +45,11 @@ else:
 
     RE = (Vcc - I_E*RC - Vce)/I_E
     RE_given = False
+
+if args.maximum_r_parallel:
+	R_parallel = RE
+else:
+	R_parallel = args.rParallel
 
 # rearranged from I_E = (Vdiv - Vbe) / RE
 # Vdiv = Vcc * R2 / (R1 + R2)
@@ -57,6 +63,10 @@ b = (a + 1) / a
 R1 = b * R_parallel
 R2 = a * R1
 
+if R_parallel > RE:
+	raise ValueError("Invalid parameters: design violates inequality R1||R2 <= RE\n" + 
+						"RE = " + str(RE) + "\nR1||R2 = " + str(R_parallel))
+
 print('\n')
 print('************************************************************\n')
 print('The resistor values for the circuit were calculated to be:')
@@ -64,7 +74,11 @@ print('R1 = ' + str(R1) + ' Ohms')
 print('R2 = ' + str(R2) + ' Ohms')
 print('RE = ' + str(RE) + ' Ohms')
 print('\nThe calculation was done given the following design parameters:')
-print('R1||R2 = ' + str(R_parallel) + ' Ohms')
+
+if args.maximum_r_parallel:
+	print('R1||R2 = maximum value')
+else:
+	print('R1||R2 = ' + str(R_parallel) + ' Ohms')
 
 if RE_given:
 	print('R_E = ' + str(RE) + ' Ohms')
