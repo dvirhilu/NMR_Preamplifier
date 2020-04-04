@@ -5,10 +5,10 @@ import argparse
 import CalculationUtils
 
 parser = argparse.ArgumentParser(
-        description = "Calculates the input impedance of a single stage amplifier design")
+        description = "Provides a first estimate to for R1||R2 needed to achieve a certain input impedance")
 
-parser.add_argument('-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
-        help = "Type of amplifier used.")
+parser.add_argument('-d', '--useCascode', action = 'store_true',
+        help = "Flag to indicate which amplifier to use: Cascode if called, Common-Emitter otherwise")
 parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
 parser.add_argument('--Vbe', default = 0.76, type = float,
@@ -42,12 +42,15 @@ RC = args.RC
 r_e = v_t / I_E
 r_pi = beta * r_e
 z_pi = -1j/(omega*c_pi)
+z_mu = -1j/(omega*c_mu)
 
 # Calculate gain for Miller Capacitance depending on amplifier type
-if args.ampType == 'commonEmitter':
-	miller_gain = RC * I_E/v_t
+if args.useCascode:
+	miller_gain = CalculationUtils.parallel(r_e, z_mu, z_pi) / CalculationUtils.parallel(r_e, z_mu)
+	amp_type = "Cascode"
 else:
-        miller_gain = CalculationUtils.parallel(r_e, z_mu, z_pi) / CalculationUtils.parallel(r_e, z_mu)
+	miller_gain = RC * I_E/v_t
+	amp_type = "Common-Emitter"
 
 # Calculate Miller impedance 
 c_miller = c_mu * (1 + miller_gain)
@@ -65,6 +68,7 @@ C_series = 1/(omega*z_ext.imag)
 
 print('\n')
 print('************************************************************\n')
+print("Calculating for amplifier type: " + str(amp_type))
 print('The following is a first guess to achieve Z_in = ' + str(z_target) + ':')
 print('\nWith no series capacitor:')
 print('R1||R2 = ' + str(R_parallel_no_cap) + ' Ohms')

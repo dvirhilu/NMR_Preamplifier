@@ -5,7 +5,7 @@ import numpy as np
 import argparse, CalculationUtils
 
 parser = argparse.ArgumentParser(
-        description = "Calculates the input impedance of a single stage amplifier design")
+        description = "Plots amplifier sensitivity to changes in BJT properties")
 
 # parser.add_argument('-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
 #         help = "Type of amplifier used.")

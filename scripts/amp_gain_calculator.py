@@ -6,10 +6,10 @@ import argparse
 import CalculationUtils
 
 parser = argparse.ArgumentParser(
-        description = "Calculates the input impedance of a single stage amplifier design")
+        description = "Calculates the gain of a single stage amplifier design")
 
-parser.add_argument('-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
-        help = "Type of amplifier used.")
+parser.add_argument('-d', '--useCascode', action = 'store_true',
+        help = "Flag to indicate which amplifier to use: Cascode if called, Common-Emitter otherwise")
 parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
 parser.add_argument('--Vbe', default = 0.76, type = float,
@@ -22,25 +22,19 @@ parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
 		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
-parser.add_argument('--Cseries', default = np.inf, type = float,
-		help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
 parser.add_argument('-r', '--rParallel', default = 50, type = float,
                 help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
-parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
-        help = "The impedance magnitude you wish to match to. Used as Bode Plot reference.")
 args = parser.parse_args()
 
 #### Design Parameters ###
 v_t = 27e-3
-z_target = args.targetImpedanceMagnitude
 V_BE = args.Vbe
 V_CC = args.Vcc
 I_E = args.emitterCurrent
 c_pi = args.Cpi
 c_mu = args.Cmu
-c_series = args.Cseries
 f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
 beta = args.beta
@@ -54,17 +48,21 @@ R_in_eq = args.rParallel
 g_1 = g_m - 1 / z_mu
 z_1 = CalculationUtils.parallel(RC, z_mu)
 
-if args.ampType == 'commonEmitter':
-    gain = z_1 * g_1
-else:
+if args.useCascode:
     z_2 = CalculationUtils.parallel(r_e, z_mu, z_pi)
     gain = z_1 * z_2 * g_1 * g_m
+    amp_type = "Cascode"
+    print(z_1[0], z_2[0], g_1[0], g_m)
+else:
+    gain = z_1 * g_1
+    amp_type = "Common-Emitter"
 
 gain_mag = CalculationUtils.magnitude(gain)
 gain_phase = CalculationUtils.phase(gain)
+print(gain_mag[0])
 
 plt.figure()
-plt.semilogx(f*1e-6, 20*np.log(gain_mag) )
+plt.semilogx(f*1e-6, 20*np.log10(gain_mag) )
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Gain Magnitude (dB)")
 plt.title("Gain Bode Plot" )

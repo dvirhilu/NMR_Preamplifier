@@ -6,7 +6,7 @@ import argparse
 import CalculationUtils
 
 parser = argparse.ArgumentParser(
-        description = "Calculates the input impedance of a single stage amplifier design")
+        description = "Calculates the resistor values for a single stage amplifier design given a set of parameters")
 
 # parser.add_argument( '-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
 #         help = "Type of amplifier used.")
