@@ -21,11 +21,11 @@ parser.add_argument('-b', '--beta', default = 330, type = float,
 parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
-		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
+	help = "C_mu of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cseries', default = np.inf, type = float,
-		help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
+	help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
 parser.add_argument('-r', '--rParallel', default = 50, type = float,
-                help = "The parallel combination of the input resistors")
+        help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
