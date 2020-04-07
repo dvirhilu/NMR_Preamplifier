@@ -3,8 +3,8 @@ Circuit: * C:\Users\Dvir\Documents\School Stuff\ENPH 4th Year Term 1\Capstone\NM
 WARNING: Less than two connections to node NC_01.  This node is used by R:U1:E1.
 Direct Newton iteration for .op point succeeded.
 
-Date: Tue Feb 25 15:48:09 2020
-Total elapsed time: 0.464 seconds.
+Date: Mon Apr 06 03:31:25 2020
+Total elapsed time: 0.152 seconds.
 
 tnom = 25
 temp = 27

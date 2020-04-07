@@ -1,0 +1,18 @@
+* C:\Users\Dvir\Documents\School Stuff\ENPH 4th Year Term 1\Capstone\NMR_Preamplifier\LTspice\Cascode\cascode.asc
+R3 Vcc V1 13
+R1 V1 V2 59
+R2 V2 0 415
+R_C Vcc N001 50
+R_E N002 0 410
+Cin V2 Vin 22n
+Cbyp V1 0 22n
+Cout Vout N001 22n
+C_E 0 N002 22n
+XU1 N001 V1 NC_01 Vo1 BFP842ESD
+XU2 Vo1 V2 NC_02 N002 BFP842ESD
+V1 Vcc 0 3.3
+Vin Vin 0 AC 1e-6
+.ac lin 10000 125e6 500e6
+.lib C:\Users\Dvir\Documents\LTspiceXVII\lib\sym\Infineon-RFTransistor-SPICE.lib-SM-v02_10-EN.lib
+.backanno
+.end
