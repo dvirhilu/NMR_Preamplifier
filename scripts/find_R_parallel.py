@@ -61,20 +61,13 @@ z_bjt = CalculationUtils.parallel(z_pi, r_pi)
 
 z_ext = CalculationUtils.parallel(z_target, -z_bjt, -z_miller)
 
-R_parallel_no_cap = CalculationUtils.magnitude(z_ext)
-
-R_parallel_with_cap = z_ext.real
-C_series = 1/(omega*z_ext.imag)
+R_parallel = CalculationUtils.magnitude(z_ext)
 
 print('\n')
 print('************************************************************\n')
 print("Calculating for amplifier type: " + str(amp_type))
-print('The following is a first guess to achieve Z_in = ' + str(z_target) + ':')
-print('\nWith no series capacitor:')
-print('R1||R2 = ' + str(R_parallel_no_cap) + ' Ohms')
-print('\nWith a series capacitor:')
-print('R1||R2 = ' + str(R_parallel_with_cap) + ' Ohms')
-print('C_series = ' + str(C_series*10**(12)) + ' pF')
+print('The following is a first guess to achieve Z_in = ' + str(z_target) + ':\n')
+print('R1||R2 = ' + str(R_parallel) + ' Ohms')
 print('\n************************************************************')
 print('\n')
 print('NOTE: This was a calculation for f = 312.5MHz')

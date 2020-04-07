@@ -60,8 +60,6 @@ def find_R_vals_cascode(I_E, RE, Vbe, Vcc, Vce2, R_parallel):
 	# let a = V_R1/V_R3 = (V1-V2) / (Vcc - V1)
 	# let b = V_R2/V_R3 = V2 / (Vcc - V1)
 	# Then R1 = aR3, R2 = bR3
-	# Plugging this in to R_parallel = R1||R2 allows to solve for all 3 resistors
-	# R3 = (a+b)/(a*b) * R_parallel
 
 	V1 = I_E*RE + Vce2 + Vbe
 	V2 = I_E*RE + Vbe
@@ -69,7 +67,15 @@ def find_R_vals_cascode(I_E, RE, Vbe, Vcc, Vce2, R_parallel):
 	a = (V1 - V2) / (Vcc - V1)
 	b = V2 / (Vcc - V1)
 
-	R3 = (a + b) / (a * b) * R_parallel
+	if args.maximum_r_parallel:
+		# Plugging equations above into RE = (R2 * (2R3 + R1)) / (R1 + R2 + R3)
+		# Rearranging for R3
+		R3 = (a + b + 1) / (2*b + a*b) * RE
+	else:
+		# Plugging the equations above into R_parallel = R1||R2
+		# Rearranging for R3
+		R3 = (a + b) / (a * b) * R_parallel
+		
 	R1 = a * R3
 	R2 = b * R3
 	

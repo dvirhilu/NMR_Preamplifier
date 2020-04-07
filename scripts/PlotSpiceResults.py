@@ -3,6 +3,17 @@
 import numpy as np
 import csv
 import matplotlib.pyplot as plt
+import argparse
+
+parser = argparse.ArgumentParser(
+        description = "Calculates the input impedance of a single stage amplifier design")
+
+parser.add_argument('-f', '--plotFrequencyRange', action = 'store_true',
+        help = "Plot two vertical lines at frequencies of 125 and 500 MHz")
+parser.add_argument('-g', '--plotGain', action = 'store_true',
+        help = "Plot the calculated gain graph")
+
+args = parser.parse_args()
 
 f = open('bodePlot.csv')
 csv_f = csv.reader(f)
@@ -40,9 +51,9 @@ ax1.set_xlabel('Frequency (MHz)')
 ax1.set_ylabel('Gain Magnitude (dB)', color=color)
 # ax1.set_ylabel('Gain Magnitude (dB)')
 ax1.semilogx(f, g, color = color)
-ax1.plot(np.ones(100)*125, np.linspace(min(g),19.328,100), '--' , label = '125MHz', color = 'black')
-ax1.plot(np.ones(100)*500, np.linspace(min(g),19.328,100), '--', label = '500MHz', color = 'green')
-ax1.plot(np.linspace(min(f), max(f), 100), np.ones(100)*19.328, '--', label = 'Calculated Gain', color = 'orange')
+# ax1.plot(np.ones(100)*125, np.linspace(min(g),19.3,100), '--' , label = '125MHz', color = 'black')
+# ax1.plot(np.ones(100)*500, np.linspace(min(g),19.3,100), '--', label = '500MHz', color = 'green')
+# ax1.plot(np.linspace(min(f), max(f), 100), np.ones(100)*19.3, '--', label = 'Calculated Gain', color = 'orange')
 ax1.tick_params(axis='y', labelcolor = color)
 ax1.title.set_text("Simulated Amplifier Open Circuit Gain")
 ax1.legend()

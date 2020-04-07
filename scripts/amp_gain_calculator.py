@@ -22,8 +22,6 @@ parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
 		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
-parser.add_argument('-r', '--rParallel', default = 50, type = float,
-                help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 args = parser.parse_args()
@@ -43,18 +41,18 @@ g_m = I_E / v_t
 r_e = 1 / g_m
 z_pi = -1j/(omega*c_pi)
 z_mu = -1j/(omega*c_mu)
-R_in_eq = args.rParallel
 
 g_1 = g_m - 1 / z_mu
-z_1 = CalculationUtils.parallel(RC, z_mu)
+z_3 = CalculationUtils.parallel(RC, z_mu)
 
 if args.useCascode:
-    z_2 = CalculationUtils.parallel(r_e, z_mu, z_pi)
-    gain = z_1 * z_2 * g_1 * g_m
+    z_2 = CalculationUtils.parallel(z_mu, z_pi, beta*r_e)
+    g_2 = g_m + 1/z_2
+    gain = z_3 * g_1 * g_m / g_2
     amp_type = "Cascode"
-    print(z_1[0], z_2[0], g_1[0], g_m)
+    print(z_3[0], z_2[0], g_1[0], g_m)
 else:
-    gain = z_1 * g_1
+    gain = z_3 * g_1
     amp_type = "Common-Emitter"
 
 gain_mag = CalculationUtils.magnitude(gain)

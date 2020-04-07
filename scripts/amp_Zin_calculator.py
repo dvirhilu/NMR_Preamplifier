@@ -22,8 +22,6 @@ parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
 	help = "C_mu of the chosen transistor in the Hybrid Pi Model")
-parser.add_argument('--Cseries', default = np.inf, type = float,
-	help = "Ability to insert a capacitor in series at the input and see its effects on the impedance")
 parser.add_argument('-r', '--rParallel', default = 50, type = float,
         help = "The parallel combination of the input resistors")
 parser.add_argument('--RC', default = 50, type = float,
@@ -40,7 +38,6 @@ V_CC = args.Vcc
 I_E = args.emitterCurrent
 c_pi = args.Cpi
 c_mu = args.Cmu
-c_series = args.Cseries
 f = np.linspace(125e6,500e6, 1000)
 omega = 2*np.pi*f
 beta = args.beta
