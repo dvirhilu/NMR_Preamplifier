@@ -7,26 +7,20 @@ import argparse, CalculationUtils
 parser = argparse.ArgumentParser(
         description = "Plots amplifier sensitivity to changes in BJT properties")
 
-# parser.add_argument('-t', '--ampType', default = 'commonEmitter', choices = ["commonEmitter, cascode"],
-#         help = "Type of amplifier used.")
+parser.add_argument('-d', '--useCascode', action = 'store_true',
+        help = "Flag to indicate which amplifier to use: Cascode if called, Common-Emitter otherwise")
 parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
-parser.add_argument('--Vce', default = 1, type = float,
-        help = "The desired collector-emitter voltage of the BJT. Ignored if RE provided")
 parser.add_argument('-i', '--i_target',  default = 5e-3, type = float,
         help = "Target current flow in the emitter branch.")
 parser.add_argument('--R1', default = 60.4, type = float, 
-        help = "Top resistor in the divider at the input")
+        help = "Top resistor in the divider network for common-emitter, middle resistor for cascode")
 parser.add_argument('--R2', default = 357, type = float, 
-        help = "Middle resistor in the divider at the input")
-# parser.add_argument('--R3', default = 100, type = float, 
-#         help = "Bottom resistor in the divider at the input")
-parser.add_argument('--RE', default = argparse.SUPPRESS, type = float,
-        help = "Emitter resistor value. Typically supressed. If value provided, Vce and Rc arguments ignored.")
-parser.add_argument('--RC', default = 50, type = float,
-        help = "Collector resistor value. Ignored if RE provided")
-parser.add_argument('-d', '--incorporateTestData', action = 'store_true',
-        help = "Call this option to incorporate data points from conducted tests into plots")
+        help = "Bottom resistor in the divider at the input")
+parser.add_argument('--R3', default = 13, type = float, 
+        help = "Top resistor in the divider at the input of a cascode")
+parser.add_argument('--RE', default = 412, type = float,
+        help = "Emitter resistor value")
 args = parser.parse_args()
 
 ### Design Parameters ###
@@ -34,22 +28,20 @@ I_E = args.i_target
 Vcc = args.Vcc
 R1 = args.R1
 R2 = args.R2
-R_parallel = CalculationUtils.parallel(R1, R2)
-Vdiv = Vcc * R2 / (R1 + R2)
+R3 = args.R3
+RE = args.RE
 
-# determine R_E based on either provided value or from R_C and V_CE
-if hasattr(args, 'RE'):
-    RE = args.RE
-else:
-    Vce = args.Vce
-    RC = args.RC
+def get_I_E_cascode(Vbe, beta, Vcc, R1, R2, R3, RE):
+        Vdiv = Vcc * R2 / (R1 + R2 + R3)
+        Rbott = R2 * (2*R3 + R1) / (R1 + R2 + R3)
 
-    RE = (Vcc - I_E*RC - Vce)/I_E
+        return (Vdiv - Vbe) / (Rbott / beta + RE) 
 
-Vbe_test = np.array([0.771, 0.76, 0.758])
-beta_test = np.array([325, 405, 409])
-Vdiv_test = Vcc*R2 / (R1+R2)
-I_test = (Vdiv_test - Vbe_test) / (R_parallel/beta_test + RE) * 10**3
+def get_I_E_CE(Vbe, beta, Vcc, R1, R2, RE):
+        Vdiv = Vcc * R2 / (R1 + R2)
+        Rbott = CalculationUtils.parallel(R1, R2)
+
+        return (Vdiv - Vbe) / (Rbott / beta + RE) 
 
 ### Plot Vbe Sensitivity ###
 Vbe = np.linspace(0.5, 1.25, 1000, endpoint= True)
@@ -57,13 +49,12 @@ beta = np.linspace(100, 500, 5, endpoint = True)
 
 plt.figure(figsize=(7,6))
 for beta_val in beta:
-    I = (Vdiv - Vbe) / (R_parallel/beta_val + RE) * 10**3
-    plt.plot(Vbe, I, label = r'$\beta=$' + str(int(beta_val)))
-
-if args.incorporateTestData: 
-    plt.scatter(Vbe_test[0], I_test[0], label = 'Simulation')
-    plt.scatter(Vbe_test[1], I_test[1], label = 'Outside Magnet')
-    plt.scatter(Vbe_test[2], I_test[2], label = 'Inside Magnet')
+	if args.useCascode:
+		I = get_I_E_cascode(Vbe=Vbe, beta=beta_val, Vcc=Vcc, R1=R1, R2=R2, R3=R3, RE=RE)
+	else:
+		I = get_I_E_CE(Vbe=Vbe, beta=beta_val, Vcc=Vcc, R1=R1, R2=R2, RE=RE)
+	
+	plt.plot(Vbe, I, label = r'$\beta=$' + str(int(beta_val)))
 
 plt.xlabel("Base-Emitter Voltage (V)")
 plt.ylabel("Collector Current (mA)")
@@ -76,13 +67,12 @@ beta = np.linspace(1, 500, 1000, endpoint = True)
 
 plt.figure(figsize=(7,6))
 for Vbe_val in Vbe:
-    I = (Vdiv - Vbe_val) / (R_parallel/beta + RE) * 10**3
-    plt.semilogx(beta, I, label = r'$V_{be}=$' + str(round(Vbe_val,1)))
-
-if args.incorporateTestData: 
-    plt.scatter(beta_test[0], I_test[0], label = 'Simulation')
-    plt.scatter(beta_test[1], I_test[1], label = 'Outside Magnet')
-    plt.scatter(beta_test[2], I_test[2], label = 'Inside Magnet')
+	if args.useCascode:
+		I = get_I_E_cascode(Vbe=Vbe_val, beta=beta, Vcc=Vcc, R1=R1, R2=R2, R3=R3, RE=RE)
+	else:
+		I = get_I_E_CE(Vbe=Vbe_val, beta=beta, Vcc=Vcc, R1=R1, R2=R2, RE=RE)
+	
+	plt.semilogx(beta, I, label = r'$V_{be}=$' + str(round(Vbe_val,1)))
 
 plt.xlabel("BJT Current Amplification Factor (" + r'$\beta$' + ")")
 plt.ylabel("Collector Current (mA)")
@@ -95,9 +85,13 @@ beta = np.logspace(0, 2.7, 100, endpoint = True)
 
 I_per_error = np.empty([len(Vbe), len(beta)])
 for i in range(len(Vbe)):
-    for j in range((len(beta))):
-        I = (Vdiv - Vbe[i]) / (R_parallel/beta[j] + RE)
-        I_per_error[i][j] = (I - I_E) / I_E * 100
+	for j in range((len(beta))):
+		if args.useCascode:
+			I = get_I_E_cascode(Vbe=Vbe[i], beta=beta[j], Vcc=Vcc, R1=R1, R2=R2, R3=R3, RE=RE)
+		else:
+			I = get_I_E_CE(Vbe=Vbe[i], beta=beta[j], Vcc=Vcc, R1=R1, R2=R2, RE=RE)
+		
+		I_per_error[i][j] = (I - I_E) / I_E * 100
 
 plt.figure(figsize=(7,6))
 c = plt.pcolor(Vbe, beta, I_per_error.T)

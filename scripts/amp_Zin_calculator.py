@@ -12,8 +12,6 @@ parser.add_argument('-d', '--useCascode', action = 'store_true',
         help = "Flag to indicate which amplifier to use: Cascode if called, Common-Emitter otherwise")
 parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
-parser.add_argument('--Vbe', default = 0.76, type = float,
-        help = "The base emitter voltage of the BJT")
 parser.add_argument('-i', '--emitterCurrent',  default = 5e-3, type = float,
         help = "Target current flow in the emitter branch.")
 parser.add_argument('-b', '--beta', default = 330, type = float,
@@ -23,7 +21,7 @@ parser.add_argument('--Cpi', default = 0.595e-12, type = float,
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
 	help = "C_mu of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('-r', '--rParallel', default = 50, type = float,
-        help = "The parallel combination of the input resistors")
+        help = "The parallel combination of the input resistors (R1 || R2)")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 parser.add_argument('-z', '--targetImpedanceMagnitude', default = 50, type = float,
@@ -33,7 +31,6 @@ args = parser.parse_args()
 #### Design Parameters ###
 v_t = 27e-3
 z_target = args.targetImpedanceMagnitude
-V_BE = args.Vbe
 V_CC = args.Vcc
 I_E = args.emitterCurrent
 c_pi = args.Cpi
@@ -76,11 +73,11 @@ plt.xlabel("Frequency (Hz)")
 plt.ylabel("Input Impedance Magnitude (" + r'$\Omega$' + ")")
 plt.title("Amplifier Input Impedance Magnitude")
 
-plt.figure()
-plt.semilogx(f*1e-6, 20*np.log10(z_in_mag/z_target) )
-plt.xlabel("Frequency (Hz)")
-plt.ylabel("Input Impedance Magnitude (dB)")
-plt.title("Impedance Bode Plot (Reference of " + str(round(z_target, 1)) + r'$\Omega$' + ")" )
+# plt.figure()
+# plt.semilogx(f*1e-6, 20*np.log10(z_in_mag/z_target) )
+# plt.xlabel("Frequency (Hz)")
+# plt.ylabel("Input Impedance Magnitude (dB)")
+# plt.title("Impedance Bode Plot (Reference of " + str(round(z_target, 1)) + r'$\Omega$' + ")" )
 
 plt.figure()
 plt.plot(f*1e-6, z_in_phase*180/(2*np.pi))
@@ -88,13 +85,13 @@ plt.xlabel("Frequency (Hz)")
 plt.ylabel("Input Impedance Phase (Degrees)")
 plt.title("Amplifier Input Impedance Phase")
 
-plt.figure()
-plt.plot([c.real for c in z_in], [c.imag for c in z_in])
-plt.xlabel("Re(" + r'$Z_{in}$' + ")")
-plt.ylabel("Im(" + r'$Z_{in}$' + ")")
-plt.xlim(-100, 100)
-plt.ylim(-100, 100)
-plt.title("Input Impedance in the Complex Plane")
-plt.grid()
+# plt.figure()
+# plt.plot([c.real for c in z_in], [c.imag for c in z_in])
+# plt.xlabel("Re(" + r'$Z_{in}$' + ")")
+# plt.ylabel("Im(" + r'$Z_{in}$' + ")")
+# plt.xlim(-100, 100)
+# plt.ylim(-100, 100)
+# plt.title("Input Impedance in the Complex Plane")
+# plt.grid()
 
 plt.show()

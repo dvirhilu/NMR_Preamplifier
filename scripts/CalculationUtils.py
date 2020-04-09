@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Contains helper functions used in other scripts
+
 import numpy as np
 from numbers import Number
 

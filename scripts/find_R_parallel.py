@@ -11,8 +11,6 @@ parser.add_argument('-d', '--useCascode', action = 'store_true',
         help = "Flag to indicate which amplifier to use: Cascode if called, Common-Emitter otherwise")
 parser.add_argument('-v', '--Vcc', default = 3.3, type = float,
         help = "The power supply voltage of the circuit.")
-parser.add_argument('--Vbe', default = 0.76, type = float,
-        help = "The base emitter voltage of the BJT")
 parser.add_argument('-i', '--emitterCurrent',  default = 5e-3, type = float,
         help = "Target current flow in the emitter branch.")
 parser.add_argument('-b', '--beta', default = 330, type = float,
@@ -30,7 +28,6 @@ args = parser.parse_args()
 # Design Parameters
 v_t = 27e-3
 z_target = args.targetImpedanceMagnitude
-V_BE = args.Vbe
 V_CC = args.Vcc
 I_E = args.emitterCurrent
 c_pi = args.Cpi
@@ -71,5 +68,5 @@ print('R1||R2 = ' + str(R_parallel) + ' Ohms')
 print('\n************************************************************')
 print('\n')
 print('NOTE: This was a calculation for f = 312.5MHz')
-print('NOTE: The calculation yielded Z_ext = ' + str(z_ext))
+print('NOTE: The calculation yielded Z_ext = ' + str(round(z_ext.real, 2) + round(z_ext.imag, 2) * 1j))
 print()

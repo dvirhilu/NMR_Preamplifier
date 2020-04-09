@@ -21,7 +21,7 @@ parser.add_argument('-b', '--beta', default = 330, type = float,
 parser.add_argument('--Cpi', default = 0.595e-12, type = float,
         help = "C_pi of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--Cmu', default = 0.147e-12, type = float,
-		help = "C_mu of the chosen transistor in the Hybrid Pi Model")
+	help = "C_mu of the chosen transistor in the Hybrid Pi Model")
 parser.add_argument('--RC', default = 50, type = float,
         help = "Collector resistor value")
 args = parser.parse_args()
@@ -71,13 +71,13 @@ plt.xlabel("Frequency (Hz)")
 plt.ylabel("Gain Phase (Degrees)")
 plt.title("Gain Phase Plot")
 
-plt.figure()
-plt.plot([c.real for c in gain], [c.imag for c in gain])
-plt.xlabel("Re(" + r'$Z_{in}$' + ")")
-plt.ylabel("Im(" + r'$Z_{in}$' + ")")
-plt.xlim(-100, 100)
-plt.ylim(-100, 100)
-plt.title("Gain in the Complex Plane")
-plt.grid()
+# plt.figure()
+# plt.plot([c.real for c in gain], [c.imag for c in gain])
+# plt.xlabel("Re(" + r'$Z_{in}$' + ")")
+# plt.ylabel("Im(" + r'$Z_{in}$' + ")")
+# plt.xlim(-100, 100)
+# plt.ylim(-100, 100)
+# plt.title("Gain in the Complex Plane")
+# plt.grid()
 
 plt.show()
